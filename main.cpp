@@ -18,7 +18,7 @@ int main() {
     }
 
     double fps = cap.get(cv::CAP_PROP_FPS);
-    int delay = (fps > 0) ? (1000 / fps) : 30; // fallback to ~30ms delay if FPS is unavailable
+    int delay = (fps > 0) ? (1000 / fps) : 30;
 
     cv::Mat frame;
     cv::namedWindow("Video Playback", cv::WINDOW_AUTOSIZE);
@@ -43,14 +43,12 @@ int main() {
 
         cv::imshow("Isolated Green", green_colored);
 
-        // 4. Wait for key press and check if 'q' or 'Esc' (27) was pressed to exit
         char key = (char)cv::waitKey(delay);
         if (key == 'q' || key == 27) {
             break;
         }
     }
-
-    // 5. Clean up (Optional, but best practice)
+    
     cap.release();
     cv::destroyAllWindows();
 
