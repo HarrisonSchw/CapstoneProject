@@ -10,9 +10,8 @@
 
 int main() {
     
-    std::cout << "Hello, CMake World!" << std::endl;
 
-    cv::VideoCapture cap(0);
+    cv::VideoCapture cap(0, cv::CAP_AVFOUNDATION);
     if (!cap.isOpened()) {
         std::cerr << "Error: Could not open video file or camera feed." << std::endl;
         return -1;
@@ -27,13 +26,13 @@ int main() {
 
     // 3. Continuous processing loop
     while (true) {
+
+        cap >> frame;
         // Read the next frame. Returns false if the video ends or disconnects.
         if (!cap.read(frame)) {
             std::cout << "Video ended or stream broken." << std::endl;
             break;
         }
-
-        cap >> frame;
 
         cv::split(frame, bgr_channels);
 
