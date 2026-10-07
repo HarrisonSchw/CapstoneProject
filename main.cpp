@@ -17,6 +17,9 @@ int main() {
         return -1;
     }
 
+    double fps = cap.get(cv::CAP_PROP_FPS);
+    int delay = (fps > 0) ? (1000 / fps) : 30; // fallback to ~30ms delay if FPS is unavailable
+
     cv::Mat frame;
     cv::namedWindow("Video Playback", cv::WINDOW_AUTOSIZE);
     std::vector<cv::Mat> bgr_channels;
