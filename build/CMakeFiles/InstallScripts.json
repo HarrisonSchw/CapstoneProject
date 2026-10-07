@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/Users/harrison/Documents/HelloWorld/build/cmake_install.cmake"
+		"/Users/harrison/Documents/GitHub/CapstoneProject/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

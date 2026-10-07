@@ -1,4 +1,4 @@
-CMakeFiles/MyProject.dir/main.cpp.o: \
+CMakeFiles/Capstone.dir/main.cpp.o: \
   /Users/harrison/Documents/GitHub/CapstoneProject/main.cpp \
   /opt/homebrew/Cellar/opencv/4.13.0_15/include/opencv4/opencv2/opencv.hpp \
   /opt/homebrew/Cellar/opencv/4.13.0_15/include/opencv4/opencv2/opencv_modules.hpp \

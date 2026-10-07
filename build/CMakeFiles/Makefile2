@@ -54,20 +54,20 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/harrison/Documents/HelloWorld
+CMAKE_SOURCE_DIR = /Users/harrison/Documents/GitHub/CapstoneProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/harrison/Documents/HelloWorld/build
+CMAKE_BINARY_DIR = /Users/harrison/Documents/GitHub/CapstoneProject/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/MyProject.dir/all
+all: CMakeFiles/Capstone.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/MyProject.dir/codegen
+codegen: CMakeFiles/Capstone.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/MyProject.dir/clean
+clean: CMakeFiles/Capstone.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/MyProject.dir
+# Target rules for target CMakeFiles/Capstone.dir
 
 # All Build rule for target.
-CMakeFiles/MyProject.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/harrison/Documents/HelloWorld/build/CMakeFiles --progress-num=1,2 "Built target MyProject"
-.PHONY : CMakeFiles/MyProject.dir/all
+CMakeFiles/Capstone.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Capstone.dir/build.make CMakeFiles/Capstone.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Capstone.dir/build.make CMakeFiles/Capstone.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/harrison/Documents/GitHub/CapstoneProject/build/CMakeFiles --progress-num=1,2 "Built target Capstone"
+.PHONY : CMakeFiles/Capstone.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/MyProject.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harrison/Documents/HelloWorld/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MyProject.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harrison/Documents/HelloWorld/build/CMakeFiles 0
-.PHONY : CMakeFiles/MyProject.dir/rule
+CMakeFiles/Capstone.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harrison/Documents/GitHub/CapstoneProject/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Capstone.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harrison/Documents/GitHub/CapstoneProject/build/CMakeFiles 0
+.PHONY : CMakeFiles/Capstone.dir/rule
 
 # Convenience name for target.
-MyProject: CMakeFiles/MyProject.dir/rule
-.PHONY : MyProject
+Capstone: CMakeFiles/Capstone.dir/rule
+.PHONY : Capstone
 
 # codegen rule for target.
-CMakeFiles/MyProject.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/harrison/Documents/HelloWorld/build/CMakeFiles --progress-num=1,2 "Finished codegen for target MyProject"
-.PHONY : CMakeFiles/MyProject.dir/codegen
+CMakeFiles/Capstone.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Capstone.dir/build.make CMakeFiles/Capstone.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/harrison/Documents/GitHub/CapstoneProject/build/CMakeFiles --progress-num=1,2 "Finished codegen for target Capstone"
+.PHONY : CMakeFiles/Capstone.dir/codegen
 
 # clean rule for target.
-CMakeFiles/MyProject.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/clean
-.PHONY : CMakeFiles/MyProject.dir/clean
+CMakeFiles/Capstone.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Capstone.dir/build.make CMakeFiles/Capstone.dir/clean
+.PHONY : CMakeFiles/Capstone.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
