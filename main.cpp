@@ -38,12 +38,40 @@ int main() {
     cv::namedWindow("Video Playback", cv::WINDOW_AUTOSIZE);
     std::vector<cv::Mat> bgr_channels;
 
-    int frame_count = 0;
-    // 3. Continuous processing loop
-    while (true) {
+    cap >> frame;
 
+    cv::imshow("Pick Measured Area", frame);
+    cv::setMouseCallback("Pick Measured Area", LocationDetect, &frame);
+    cv::waitKey(0);
+
+    cv::destroyAllWindows();
+    locationFile.close();
+
+    std::ifstream locationInput("/Users/harrison/Documents/GitHub/CapstoneProject/dimensions.txt");
+
+    std::string cord1, cord2;
+    char comma = ',';
+
+    std::getline(locationInput, cord1);
+
+    size_t position = cord1.find(comma);
+
+    std::string x1 = cord1.substr(1, position - 1);
+    std::string y1 = cord1.substr(position + 2, cord1.length() - position - 3);
+
+
+    std::getline(locationInput, cord2);
+
+    position = cord2.find(comma);
+
+    std::string x2 = cord2.substr(1, position - 1);
+    std::string y2 = cord2.substr(position + 2, cord2.length() - position - 3);
+
+    cv::Rect roi(std::stoi(x1), std::stoi(y1), std::stoi(x2) - std::stoi(x1), std::stoi(y2) - std::stoi(y1));
+
+    while (true) {
         cap >> frame;
-        // Read the next frame. Returns false if the video ends or disconnects.
+        
         if (!cap.read(frame)) {
             std::cout << "Video ended or stream broken." << std::endl;
             break;
@@ -56,23 +84,20 @@ int main() {
 
         cv::merge(std::vector<cv::Mat>{blank, bgr_channels[1], blank}, green_colored);
 
-        cv::imshow("Isolated Green", green_colored);
-        if (frame_count == 0) {
-            cv::setMouseCallback("Isolated Green", LocationDetect, &green_colored);
-            cv::waitKey(0);
-        }
+        cv::Mat roi_img = green_colored(roi);
+
+        cv::imshow("Isolated Green", roi_img);
         
 
         char key = (char)cv::waitKey(delay);
         if (key == 'q' || key == 27) {
             break;
         }
-        frame_count++;
     }
     
     cap.release();
     cv::destroyAllWindows();
-    locationFile.close();
+    locationInput.close();
 
     return 0;
 }
