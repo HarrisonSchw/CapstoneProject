@@ -49,7 +49,7 @@ int main() {
 
     std::ifstream locationInput("/Users/harrison/Documents/GitHub/CapstoneProject/dimensions.txt");
 
-    std::string cord1, cord2;
+    std::string cord1, cord2, cord3, cord4;
     char comma = ',';
 
     std::getline(locationInput, cord1);
@@ -67,7 +67,23 @@ int main() {
     std::string x2 = cord2.substr(1, position - 1);
     std::string y2 = cord2.substr(position + 2, cord2.length() - position - 3);
 
-    cv::Rect roi(std::stoi(x1), std::stoi(y1), std::stoi(x2) - std::stoi(x1), std::stoi(y2) - std::stoi(y1));
+    cv::Rect roi1(std::stoi(x1), std::stoi(y1), std::stoi(x2) - std::stoi(x1), std::stoi(y2) - std::stoi(y1));
+
+    std::getline(locationInput, cord3);
+
+    position = cord3.find(comma);
+
+    std::string x3 = cord3.substr(1, position - 1);
+    std::string y3 = cord3.substr(position + 2, cord3.length() - position - 3);
+
+    std::getline(locationInput, cord4);
+
+    position = cord4.find(comma);
+
+    std::string x4 = cord4.substr(1, position - 1);
+    std::string y4 = cord4.substr(position + 2, cord4.length() - position - 3);
+
+    cv::Rect roi2(std::stoi(x3), std::stoi(y3), std::stoi(x4) - std::stoi(x3), std::stoi(y4) - std::stoi(y3));
 
     while (true) {
         cap >> frame;
@@ -84,10 +100,13 @@ int main() {
 
         cv::merge(std::vector<cv::Mat>{blank, bgr_channels[1], blank}, green_colored);
 
-        cv::Mat roi_img = green_colored(roi);
+        cv::Mat roi_img_1 = green_colored(roi1);
 
-        cv::imshow("Isolated Green", roi_img);
-        
+        cv::imshow("Green zone 1", roi_img_1);
+
+        cv::Mat roi_img_2 = green_colored(roi2);
+
+        cv::imshow("Green zone 2", roi_img_2);
 
         char key = (char)cv::waitKey(delay);
         if (key == 'q' || key == 27) {
